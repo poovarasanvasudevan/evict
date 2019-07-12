@@ -1,0 +1,27 @@
+@import "~@blueprintjs/core/lib/scss/variables"
+
+$navbar-background-color: $blue2 !default
+$pt-intent-primary: #0052cc !default
+$pt-icon-color: #ffffff !default
+
+@import "~@blueprintjs/core/src/blueprint.scss"
+
+// icon background for toolbar
+.whitebutton:before
+  color: white !important
+
+.timepickerpop .bp3-menu
+  height: 300px
+  overflow-y: auto
+
+.h100
+  display: flex
+  flex: 1
+  height: 100%
+
+.rc-tree li .rc-tree-node-content-wrapper
+  height: 24px !important
+
+.rc-tree li span.rc-tree-switcher, .rc-tree li span.rc-tree-checkbox, .rc-tree li span.rc-tree-iconEle
+  vertical-align: unset !important
+  margin-right: 8px !important
