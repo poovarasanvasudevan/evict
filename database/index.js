@@ -27,6 +27,9 @@ var knex = require("knex")({
     debug(message) {
       console.debug(message);
     }
+  },
+  migrations: {
+    tableName: 'migrations'
   }
 });
 
