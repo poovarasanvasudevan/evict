@@ -1,7 +1,7 @@
 
 exports.up = function(knex) {
     return knex.schema.table('database_apps', function (table) {
-        table.increments('id').unsigned().primary()
+       // table.increments('id').unsigned().primary()
     })
 };
 
