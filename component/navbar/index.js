@@ -10,30 +10,40 @@ import {
     Position,
     Drawer,
     Icon,
-    Classes
+    Classes,
+    Alert,
+    Intent
 } from "@blueprintjs/core";
 import Link from "next/link";
 import {TimezonePicker, TimezoneDisplayFormat} from "@blueprintjs/timezone";
 
-const exampleMenu = (
-    <Menu>
-        <MenuItem icon="cog" text="Application Settings"/>
-        <MenuItem icon="notifications" text="Notification Settings"/>
-        <MenuItem icon="user" text="Account Settings"/>
-        <MenuItem icon="layout-group-by" text="Member Configuration"/>
 
-        <Link href="/settings/layout">
-            <MenuItem icon="new-grid-item" text="Layout Settings"/>
-        </Link>
-
-        <MenuDivider/>
-        <MenuItem icon="log-out" text="Logout"/>
-    </Menu>
-);
 export default props => {
 
     const [drawerOpen, setDrawerOpen] = React.useState(false);
     const [timeZone, setTimeZone] = React.useState('');
+    const [logout, setLogout] = React.useState(false);
+
+
+    const logoutClose = () => {
+        setLogout(false)
+    };
+
+    const exampleMenu = (
+        <Menu>
+            <MenuItem icon="cog" text="Application Settings"/>
+            <MenuItem icon="notifications" text="Notification Settings"/>
+            <MenuItem icon="user" text="Account Settings"/>
+            <MenuItem icon="layout-group-by" text="Member Configuration"/>
+
+            <Link href="/settings/layout">
+                <MenuItem icon="new-grid-item" text="Layout Settings"/>
+            </Link>
+
+            <MenuDivider/>
+            <MenuItem icon="log-out" onClick={ ()=>setLogout(true)} text="Logout"/>
+        </Menu>
+    );
 
     return (
         <Navbar>
@@ -83,6 +93,20 @@ export default props => {
             </Navbar.Group>
 
 
+            <Alert
+                confirmButtonText="Okay"
+                isOpen={logout}
+                onClose={logoutClose}
+                cancelButtonText="Cancel"
+                icon="log-out"
+                onCancel={logoutClose}
+                intent={Intent.PRIMARY}
+            >
+                <p>
+                    Couldn't create the file because the containing folder doesn't exist anymore. You will be
+                    redirected to your user folder.
+                </p>
+            </Alert>
             <Drawer
                 icon="info-sign"
                 isOpen={drawerOpen}
