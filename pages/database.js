@@ -1,14 +1,14 @@
 import React from "react";
 import Skeleton from "../component/Skeleton";
 import {Flex, Box} from "@rebass/grid";
-
+import classNames from "classnames";
 import {Select} from '@blueprintjs/select';
-import {Button, ButtonGroup, Divider, MenuItem, Icon, Colors} from '@blueprintjs/core';
+import {Button, ButtonGroup, Divider, MenuItem, Icon, Colors, Menu, MenuDivider, ContextMenu} from '@blueprintjs/core';
 import Tree from 'rc-tree';
 import 'rc-tree/assets/index.css';
 
-import knex from '../database'
-import {useQuery, useManualQuery} from 'graphql-hooks'
+import knex from '../database';
+import {useQuery, useManualQuery} from 'graphql-hooks';
 
 
 const Database = (props) => {
@@ -41,14 +41,14 @@ const Database = (props) => {
                             `;
 
     const {loading, error, data} = useQuery(HOMEPAGE_QUERY, {});
-    if (loading) return '<h1>Loading...</h1>'
-    if (error) return '<h1>Something Bad Happened</h1>'
+    if (loading) return '<h1>Loading...</h1>';
+    if (error) return '<h1>Something Bad Happened</h1>';
 
 
     var treeMap = [];
     const child = (v) => {
         if (v.children['result']) {
-            var child = []
+            var child = [];
             v.children['result'].forEach((d, ia) => {
                 child.push({
                     key: d.id,
@@ -56,12 +56,13 @@ const Database = (props) => {
                     icon: () => (
                         <Icon icon={d.icon} iconSize={15} color={d.color}/>
                     )
-                })
-            })
+                });
+            });
             return child;
         }
         return [];
-    }
+    };
+
     data['apps']['result'].forEach((v, i) => {
 
         treeMap.push({
@@ -70,10 +71,14 @@ const Database = (props) => {
             icon: () => (
                 <Icon icon={v.icon} iconSize={15} color={v.color}/>
             ),
-            children : child(v)
+            children: child(v)
 
-        })
+        });
     });
+
+    const onRightClick = (info) => {
+        console.log('right click', info);
+    };
 
 
     return (
@@ -90,6 +95,7 @@ const Database = (props) => {
                         <Tree
                             className="myCls"
                             showLine
+                            onRightClick={onRightClick}
                             selectable={true}
                             treeData={treeMap}
                         />
@@ -105,7 +111,7 @@ const Database = (props) => {
 Database.getInitialProps = ({req}) => {
 
 
-    return {}
-}
+    return {};
+};
 
 export default Database;

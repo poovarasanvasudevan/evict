@@ -1,0 +1,14 @@
+{
+  "ui" : {
+    "context_menu" : [
+      {
+        "title" : "Create User",
+        "description" : "Creates New User"
+      },
+      {
+        "title" : "View all Users",
+        "description" : "View All Users"
+      }
+    ]
+  }
+}

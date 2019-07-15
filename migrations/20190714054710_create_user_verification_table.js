@@ -2,9 +2,9 @@
 
 exports.up = function (knex) {
     return knex.schema.createTable('user_verification', function (table) {
-        table.increments('id').unsigned().primary()
+        table.increments('id').unsigned().primary();
         table.uuid('verification_key')
-            .defaultTo(knex.raw('uuid_generate_v4()'))
+            .defaultTo(knex.raw('uuid_generate_v4()'));
 
         table.integer('user_id')
             .notNullable()
@@ -13,13 +13,13 @@ exports.up = function (knex) {
             .onDelete('cascade');
 
         table.dateTime('expiry')
-            .notNullable()
+            .notNullable();
 
-        table.boolean('is_active').defaultTo(true)
-        table.timestamps(true, true)
-    })
+        table.boolean('is_active').defaultTo(true);
+        table.timestamps(true, true);
+    });
 };
 
 exports.down = function (knex) {
-    return knex.schema.dropTableIfExists('user_verification')
+    return knex.schema.dropTableIfExists('user_verification');
 };

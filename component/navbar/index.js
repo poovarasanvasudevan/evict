@@ -98,13 +98,11 @@ export default props => {
                 isOpen={logout}
                 onClose={logoutClose}
                 cancelButtonText="Cancel"
-                icon="log-out"
                 onCancel={logoutClose}
                 intent={Intent.PRIMARY}
             >
                 <p>
-                    Couldn't create the file because the containing folder doesn't exist anymore. You will be
-                    redirected to your user folder.
+                   Are you Sure want to logout from system, it will removes your temporary changes
                 </p>
             </Alert>
             <Drawer

@@ -1,0 +1,6 @@
+$button-intents: (
+        "primary": ($pt-intent-primary, $blue2, $blue1),
+        "success": ($pt-intent-success, $green2, $green1),
+        "warning": ($pt-intent-warning, $orange2, $orange1),
+        "danger": ($pt-intent-danger, $red2, $red1)
+) !default;
