@@ -61,8 +61,11 @@ export default props => {
                 <Navbar.Divider/>
 
                 <Link href='/database'>
-                    <Button text={'Database'} style={{fontWeight: 'bold', color: '#fff'}}
-                            class="bp3-button whitebutton bp3-minimal bp3-icon-database"/>
+                    <Button text={'Database'} style={{fontWeight: 'bold', color: '#fff'}} class="bp3-button whitebutton bp3-minimal bp3-icon-database"/>
+                </Link>
+
+                <Link href='/meeting'>
+                    <Button text={'Meetings'} style={{fontWeight: 'bold', color: '#fff'}} class="bp3-button whitebutton bp3-minimal bp3-icon-series-add"/>
                 </Link>
             </Navbar.Group>
 

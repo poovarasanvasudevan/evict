@@ -8,19 +8,21 @@ const fastify = require("fastify")({
 const Next = require("next");
 const {postgraphile} = require("postgraphile");
 const ConnectionFilterPlugin = require("postgraphile-plugin-connection-filter");
+const {SystemPlugin} = require('./lib/graphile-plugins');
 
 const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== "production";
+const db = require('./database/promise');
 
 fastify.use(
     postgraphile(process.env.DB_URL, process.env.DB_SCHEMA, {
-        appendPlugins: [ConnectionFilterPlugin],
+        appendPlugins: [ConnectionFilterPlugin,SystemPlugin],
         graphiql: true,
         graphiqlRoute: "/graphiql"
     })
 );
 
-queue.add('test' , {} , {});
+queue.add('test', {}, {});
 
 fastify.register((fastify, opts, next) => {
     const app = Next({dev});

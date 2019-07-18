@@ -1,4 +1,15 @@
 {
-  "presets": ["next/babel"],
-  "plugins": ["react-html-attrs"]
+  "presets": [
+    [
+      "next/babel",
+      {
+        "preset-env": {
+          "useBuiltIns": "usage"
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    "react-html-attrs"
+  ]
 }

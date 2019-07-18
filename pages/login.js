@@ -9,7 +9,6 @@ export default function (props) {
             <Flex className='h100 flex-container' style={{marginTop: '10%'}}>
                 <Box width={3 / 10} p={2}>
                     <Card elevation={1}>
-
                         <Flex>
                             <Box width={1.5 / 10}></Box>
                             <Box width={7 / 10} p={2}>
@@ -41,7 +40,6 @@ export default function (props) {
                     </Card>
                 </Box>
             </Flex>
-
         </Base>
     );
 }

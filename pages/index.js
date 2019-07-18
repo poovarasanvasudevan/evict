@@ -5,7 +5,7 @@ import Skeleton from '../component/Skeleton';
 import {Card, Classes, H5, Button} from "@blueprintjs/core";
 import {Flex, Box} from "@rebass/grid";
 
-const Index = props => {
+const Index = (props) => {
     return (
         <Skeleton>
             <Flex>
@@ -34,9 +34,7 @@ const Index = props => {
 };
 
 Index.getInitialProps = async ({req}) => {
-    return {
-
-    };
+    return {};
 };
 
 export default Index;
