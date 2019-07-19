@@ -1,20 +1,32 @@
 @import "~@blueprintjs/core/lib/scss/variables"
-@import url('https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap')
 
+$m-color1 : #364FCD
+$m-color2 : #364FCD
+$m-color3 : #334bc2
+$m-color4 : #2b3ea2
+$m-color5 : #21317d
 
-$pt-intent-primary: #364FCD
-$pt-active: #364FCD
-$navbar-background-color: #364FCD !default
+//$m-color1 : $blue1
+//$m-color2 : $blue2
+//$m-color3 : $blue3
+//$m-color4 : $blue4
+//$m-color5 : $blue5
+
+$pt-intent-primary: $m-color2
+$pt-active: $m-color2
+$navbar-background-color: $m-color2 !default
 $pt-icon-color: #ffffff !default
 
 @import "./dep"
-
 @import "~@blueprintjs/core/src/blueprint.scss"
 
 body
-  font-family: 'DM Sans', sans-serif
+  font-family: CFont, sans-serif !important
+  //font-family: 'DM Sans', sans-serif
 
-// icon background for toolbar
+*
+  font-family: CFont, sans-serif !important
+
 .whitebutton:before
   color: white !important
 

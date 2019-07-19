@@ -46,7 +46,7 @@ export default props => {
     );
 
     return (
-        <Navbar>
+        <Navbar style={{boxShadow:'none'}}>
             <Navbar.Group align={Alignment.LEFT}>
                 <Navbar.Heading style={{cursor: 'pointer'}}>
                     <Link href="/">
@@ -60,13 +60,13 @@ export default props => {
 
                 <Navbar.Divider/>
 
-                <Link href='/database'>
-                    <Button text={'Database'} style={{fontWeight: 'bold', color: '#fff'}} class="bp3-button whitebutton bp3-minimal bp3-icon-database"/>
-                </Link>
+                {/*<Link href='/database'>*/}
+                    {/*<Button text={'Database'} style={{fontWeight: 'bold', color: '#fff'}} class="bp3-button whitebutton bp3-minimal bp3-icon-database"/>*/}
+                {/*</Link>*/}
 
-                <Link href='/meeting'>
-                    <Button text={'Meetings'} style={{fontWeight: 'bold', color: '#fff'}} class="bp3-button whitebutton bp3-minimal bp3-icon-series-add"/>
-                </Link>
+                {/*<Link href='/meeting'>*/}
+                    {/*<Button text={'Meetings'} style={{fontWeight: 'bold', color: '#fff'}} class="bp3-button whitebutton bp3-minimal bp3-icon-series-add"/>*/}
+                {/*</Link>*/}
             </Navbar.Group>
 
             <Navbar.Group align={Alignment.RIGHT}>

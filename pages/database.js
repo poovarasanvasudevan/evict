@@ -89,11 +89,11 @@ const Database = (props) => {
             <Flex className='h100'>
                 <Box width={1.5 / 10} p={2} style={{borderRight: '1px solid #eaeaea'}}>
                     <div>
-                        <ButtonGroup minimal={true}>
-                            <Button icon="database"/>
-                            <Button icon="diagram-tree"/>
-                        </ButtonGroup>
-                        <Divider/>
+                        {/*<ButtonGroup minimal={true}>*/}
+                            {/*<Button icon="database"/>*/}
+                            {/*<Button icon="diagram-tree"/>*/}
+                        {/*</ButtonGroup>*/}
+                        {/*<Divider/>*/}
 
                         <Tree
                             onCollapse={(data) => console.log(data)}

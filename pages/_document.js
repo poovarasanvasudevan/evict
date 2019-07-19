@@ -24,6 +24,7 @@ class MyDocument extends Document {
 
     render() {
         return (
+
             <Html>
                 <Head>
                     {/* <link rel="stylesheet" href="/static/css/blueprint.css" />

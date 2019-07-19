@@ -1,6 +1,13 @@
+@font-face {
+  font-family: "CFont";
+  src: url("../fonts/regular.woff");
+  src: url("../fonts/regular.woff") format("woff")
+}
+
 body {
   margin: 0;
   padding: 0;
+
 }
 
 html,

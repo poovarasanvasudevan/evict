@@ -1,9 +1,10 @@
 require('dotenv').config();
 const queue = require('./lib/bull');
-const fastify = require("fastify")({
-    logger: {level: "error"},
-    pluginTimeout: 200000
-});
+
+const express = require('express');
+const helmet = require('helmet');
+const compression = require('compression');
+
 
 const Next = require("next");
 const {postgraphile} = require("postgraphile");
@@ -14,47 +15,24 @@ const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== "production";
 const db = require('./database/promise');
 
-fastify.use(
-    postgraphile(process.env.DB_URL, process.env.DB_SCHEMA, {
-        appendPlugins: [ConnectionFilterPlugin,SystemPlugin],
+const app = Next({dev});
+const handle = app.getRequestHandler();
+
+app.prepare().then(() => {
+    const server = express();
+    server.use(helmet());
+    server.use(compression());
+
+    server.use(postgraphile(process.env.DB_URL, process.env.DB_SCHEMA, {
+        appendPlugins: [ConnectionFilterPlugin, SystemPlugin],
         graphiql: true,
         graphiqlRoute: "/graphiql"
-    })
-);
-
-queue.add('test', {}, {});
-
-fastify.register((fastify, opts, next) => {
-    const app = Next({dev});
-    app
-        .prepare()
-        .then(() => {
-            if (dev) {
-                fastify.get("/_next/*", (req, reply) => {
-                    return app.handleRequest(req.req, reply.res).then(() => {
-                        reply.sent = true;
-                    });
-                });
-            }
-
-            fastify.get("/*", (req, reply) => {
-                return app.handleRequest(req.req, reply.res).then(() => {
-                    reply.sent = true;
-                });
-            });
-
-            fastify.setNotFoundHandler((request, reply) => {
-                return app.render404(request.req, reply.res).then(() => {
-                    reply.sent = true;
-                });
-            });
-
-            next();
-        })
-        .catch(err => next(err));
-});
-
-fastify.listen(port, err => {
-    if (err) throw err;
-    console.log(`> Ready on http://localhost:${port}`);
+    }));
+    server.get('*', (req, res) => {
+        return handle(req, res);
+    });
+    server.listen(port, err => {
+        if (err) throw err;
+        console.log(`> Ready on http://localhost:${port}`);
+    });
 });
