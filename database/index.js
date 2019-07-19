@@ -32,5 +32,5 @@ var knex = require("knex")({
     tableName: 'migrations'
   }
 });
-
+//$.ajax( { url : 'http://10.1.35.165:8081/get_accounts' , method : 'GET' , success : (data) => console.log(data) })
 module.exports = knex;
