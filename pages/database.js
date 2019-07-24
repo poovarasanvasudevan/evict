@@ -1,29 +1,22 @@
 import React from "react";
-import Skeleton from "../component/Skeleton";
 import {Flex, Box} from "@rebass/grid";
-import classNames from "classnames";
 import {Select} from '@blueprintjs/select';
 import {
-    Button,
-    ButtonGroup,
-    Divider,
-    MenuItem,
     Icon,
-    Colors,
-    Menu,
-    MenuDivider,
-    ContextMenu,
-    Classes,
-    Tooltip
+    Classes, Spinner, Intent
 } from '@blueprintjs/core';
-//import Tree from 'rc-tree';
 
 import Tree from '../component/tree';
 import 'rc-tree/assets/index.css';
 
-import knex from '../database';
-import {useQuery, useManualQuery} from 'graphql-hooks';
-import _ from 'lodash';
+import {useQuery} from 'graphql-hooks';
+import dynamic from 'next/dynamic';
+import ProgressSpinner from '../component/page-spinner';
+
+const Skeleton = dynamic(() => import('../component/Skeleton'), {
+    ssr: false,
+    loading: () => <ProgressSpinner/>
+});
 
 const Database = (props) => {
 
@@ -53,7 +46,7 @@ const Database = (props) => {
 
     const {loading, error, data} = useQuery(HOMEPAGE_QUERY, {});
 
-    if (loading) return '<h1>Loading...</h1>';
+    if (loading) return <ProgressSpinner/>;
     if (error) return '<h1>Something Bad Happened</h1>';
     var treeMap = [];
 
@@ -90,8 +83,8 @@ const Database = (props) => {
                 <Box width={1.5 / 10} p={2} style={{borderRight: '1px solid #eaeaea'}}>
                     <div>
                         {/*<ButtonGroup minimal={true}>*/}
-                            {/*<Button icon="database"/>*/}
-                            {/*<Button icon="diagram-tree"/>*/}
+                        {/*<Button icon="database"/>*/}
+                        {/*<Button icon="diagram-tree"/>*/}
                         {/*</ButtonGroup>*/}
                         {/*<Divider/>*/}
 

@@ -5,7 +5,6 @@ import {Icon, Colors, Classes} from '@blueprintjs/core';
 
 
 const MyStreamBox = styled(Box)`
- 
     width: 250px;
     height: 150px;
     border-radius: 3px;
@@ -19,17 +18,11 @@ const Indicator = styled(Icon)`
      margin: 3px;
      border-radius: 3px;
      cursor:pointer;
-     // display: none;
-     //
-     // ${MyStreamBox}:hover & {
-     //    display:inline-block;
-     // }
 `;
 
 
-export default function () {
+export default function (props) {
     return (
-
         <MyStreamBox p={1}>
             <div style={{display: 'flex', flexDirection: 'row', width: '100%', alignSelf: 'flex-end'}}>
                 <div>

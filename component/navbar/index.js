@@ -26,7 +26,7 @@ export default props => {
 
 
     const logoutClose = () => {
-        setLogout(false)
+        setLogout(false);
     };
 
     const exampleMenu = (
@@ -41,12 +41,26 @@ export default props => {
             </Link>
 
             <MenuDivider/>
-            <MenuItem icon="log-out" onClick={ ()=>setLogout(true)} text="Logout"/>
+            <MenuItem icon="log-out" onClick={() => setLogout(true)} text="Logout"/>
+        </Menu>
+    );
+
+    const appsMenu = (
+        <Menu>
+            <Link href="/database">
+                <MenuItem icon="database" text="Database"/>
+            </Link>
+            <Link href="/meeting">
+                <MenuItem icon="group-objects" text="Meetings"/>
+            </Link>
+            <Link href="/kb">
+                <MenuItem icon="bookmark" text="Knowledge Base"/>
+            </Link>
         </Menu>
     );
 
     return (
-        <Navbar style={{boxShadow:'none'}}>
+        <Navbar>
             <Navbar.Group align={Alignment.LEFT}>
                 <Navbar.Heading style={{cursor: 'pointer'}}>
                     <Link href="/">
@@ -61,11 +75,11 @@ export default props => {
                 <Navbar.Divider/>
 
                 {/*<Link href='/database'>*/}
-                    {/*<Button text={'Database'} style={{fontWeight: 'bold', color: '#fff'}} class="bp3-button whitebutton bp3-minimal bp3-icon-database"/>*/}
+                {/*<Button text={'Database'} style={{fontWeight: 'bold', color: '#fff'}} class="bp3-button whitebutton bp3-minimal bp3-icon-database"/>*/}
                 {/*</Link>*/}
 
                 {/*<Link href='/meeting'>*/}
-                    {/*<Button text={'Meetings'} style={{fontWeight: 'bold', color: '#fff'}} class="bp3-button whitebutton bp3-minimal bp3-icon-series-add"/>*/}
+                {/*<Button text={'Meetings'} style={{fontWeight: 'bold', color: '#fff'}} class="bp3-button whitebutton bp3-minimal bp3-icon-series-add"/>*/}
                 {/*</Link>*/}
             </Navbar.Group>
 
@@ -82,9 +96,9 @@ export default props => {
 
                 {/*<Button class="bp3-button whitebutton bp3-minimal bp3-icon-globe"/>*/}
                 {/*</TimezonePicker>*/}
-
-                <Button class="bp3-button whitebutton bp3-minimal bp3-icon-grid"/>
-
+                <Popover content={appsMenu} position={Position.BOTTOM}>
+                    <Button class="bp3-button whitebutton bp3-minimal bp3-icon-grid"/>
+                </Popover>
 
                 <Button onClick={() => setDrawerOpen(true)} class="bp3-button whitebutton bp3-minimal bp3-icon-help"/>
                 <Button class="bp3-button whitebutton bp3-minimal bp3-icon-user"/>
@@ -105,7 +119,7 @@ export default props => {
                 intent={Intent.PRIMARY}
             >
                 <p>
-                   Are you Sure want to logout from system, it will removes your temporary changes
+                    Are you Sure want to logout from system, it will removes your temporary changes
                 </p>
             </Alert>
             <Drawer

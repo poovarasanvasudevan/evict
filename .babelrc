@@ -10,6 +10,15 @@
     ]
   ],
   "plugins": [
-    "react-html-attrs"
+    "react-html-attrs",
+    [
+      "styled-components",
+      {
+        "ssr": true,
+        "minify": true,
+        "transpileTemplateLiterals": false,
+        "pure": true
+      }
+    ]
   ]
 }

@@ -1,19 +1,23 @@
 import React from 'react';
-import Skeleton from "../../component/Skeleton";
 import {Flex, Box} from "@rebass/grid";
-import {Menu, MenuDivider, MenuItem, Classes, Icon, Spinner, Intent} from '@blueprintjs/core';
-import Base from "../../component/Base";
+import {Menu, MenuItem, Spinner, Intent} from '@blueprintjs/core';
 
 
 import dynamic from 'next/dynamic';
+import ProgressSpinner from "../../component/page-spinner";
 
 const MyStream = dynamic(() => import('../../component/my-stream'), {
     ssr: false,
-    loading: () => <Spinner style={{alignSelf: 'center'}} intent={Intent.PRIMARY} size={28}/>
+    loading: () => <ProgressSpinner/>
 });
 
+const Base = dynamic(() => import('../../component/Base'), {
+    ssr: false,
+    loading: () => <ProgressSpinner/>
+});
 
-export default props => {
+export default function () {
+
     return (
         <Base>
             <Flex className="h100">

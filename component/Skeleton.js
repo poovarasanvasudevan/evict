@@ -9,7 +9,7 @@ export default props => {
         <Base>
             <div className="page-header">
                 <Navbar/>
-                <ChildNavbar/>
+                {/*<ChildNavbar/>*/}
             </div>
             <div className="page-content">
                 {props.children}

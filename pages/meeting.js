@@ -1,7 +1,6 @@
 import React from 'react';
-import Skeleton from "../component/Skeleton";
 import {Flex, Box} from "@rebass/grid";
-
+import dynamic from 'next/dynamic';
 import {
     Menu,
     MenuDivider,
@@ -23,7 +22,12 @@ import {
     Intent
 } from '@blueprintjs/core';
 
+import ProgressSpinner from "../component/page-spinner";
 
+const Skeleton = dynamic(() => import('../component/Skeleton'), {
+    ssr: false,
+    loading: () => <ProgressSpinner/>
+});
 export default props => {
     const [newMeeting, setNewMeeting] = React.useState(false);
     const [privateMeeting, setPrivateMeeting] = React.useState(false);
@@ -86,7 +90,8 @@ export default props => {
                     <FormGroup
                         label="Meeting Settings"
                     >
-                        <Checkbox checked={privateMeeting} onChange={(data)=> console.log(data)} label="Private Meeting"  />
+                        <Checkbox checked={privateMeeting} onChange={(data) => console.log(data)}
+                                  label="Private Meeting"/>
                     </FormGroup>
                 </div>
                 <div className={Classes.DIALOG_FOOTER}>

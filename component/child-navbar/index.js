@@ -11,7 +11,10 @@ const ChildNavbar = (props) => {
                     <Button icon="database">Database</Button>
                 </Link>
                 <Link href='/meeting'>
-                <Button icon="grouped-bar-chart">Meetings</Button>
+                    <Button icon="grouped-bar-chart">Meetings</Button>
+                </Link>
+                <Link href='/kb'>
+                    <Button icon="book">Knowledge Base</Button>
                 </Link>
             </ButtonGroup>
         </Card>
