@@ -13,6 +13,11 @@ const withTM = require('next-transpile-modules');
 const webpackConfiguration = {
     distDir: "build",
     webpack: (config, options) => {
+
+        config.node = {
+            fs: 'empty'
+        }
+
         config.plugins = config.plugins || [];
 
         config.plugins = [
@@ -37,9 +42,9 @@ const webpackConfiguration = {
         return config;
     }
 };
-module.exports = withPlugins([css, images, sass, less,  [withTM, {
-    transpileModules: ['@sindresorhus' ,
+module.exports = withPlugins([css, images, sass, less, [withTM, {
+    transpileModules: ['@sindresorhus',
         'colorette',
         'graphql-hooks-memcache',
-        'graphql-hooks-ssr','tiny-lru','debug','generic-pool'],
+        'graphql-hooks-ssr', 'tiny-lru', 'debug', 'generic-pool'],
 }]], webpackConfiguration);

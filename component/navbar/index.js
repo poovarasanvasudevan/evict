@@ -56,6 +56,10 @@ export default props => {
             <Link href="/kb">
                 <MenuItem icon="bookmark" text="Knowledge Base"/>
             </Link>
+
+            <Link href="/formbuilder">
+                <MenuItem icon="dashboard" text="Form Builder"/>
+            </Link>
         </Menu>
     );
 
