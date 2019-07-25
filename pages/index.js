@@ -1,5 +1,4 @@
 import React from "react";
-import knex from "../database";
 
 import {Card, Classes, H5, Button} from "@blueprintjs/core";
 import {Flex, Box} from "@rebass/grid";
@@ -10,6 +9,8 @@ const Skeleton = dynamic(() => import('../component/Skeleton'), {
     ssr: false,
     loading: () => <ProgressSpinner/>
 });
+
+
 const Index = (props) => {
     return (
         <Skeleton>
