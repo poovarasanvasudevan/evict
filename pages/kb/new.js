@@ -31,47 +31,83 @@ export default props => {
         type: 'Flex',
         props: {
             p: 2,
-            children: {
-                type: 'Box',
-                props: {
-                    p: 2,
-                    width: 0.12,
-                    children: [
-                        {
-                            type: "FormGroup",
-                            props: {
-                                label: "Article ID",
-                                labelFor: 'article_id',
-                                labelInfo: "(required)",
-                                children: {
-                                    type: 'InputGroup',
-                                    props: {
-                                        id: 'article_id',
-                                        placeholder: "Article ID"
+            children: [
+                {
+                    type: 'Box',
+                    props: {
+                        p: 2,
+                        width: 0.12,
+                        children: [
+                            {
+                                type: "FormGroup",
+                                props: {
+                                    label: "Article ID",
+                                    labelFor: 'article_id',
+                                    labelInfo: "(required)",
+                                    children: {
+                                        type: 'InputGroup',
+                                        props: {
+                                            id: 'article_id',
+                                            placeholder: "Article ID"
+                                        }
                                     }
                                 }
                             }
-                        },
-                        {
-                            type: "FormGroup",
-                            props: {
-                                label: "Article ID",
-                                labelFor: 'article_id',
-                                labelInfo: "(required)",
-                                children: {
-                                    type: 'InputGroup',
-                                    props: {
-                                        id: 'article_id',
-                                        placeholder: "Article ID"
+                        ]
+                    }
+                },
+                {
+                    type: 'Box',
+                    props: {
+                        p: 2,
+                        width: 0.12,
+                        children: [
+                            {
+                                type: "FormGroup",
+                                props: {
+                                    label: "Submitter",
+                                    labelFor: 'submitter',
+                                    labelInfo: "(required)",
+                                    children: {
+                                        type: 'InputGroup',
+                                        props: {
+                                            id: 'submitter',
+                                            disabled: true,
+                                            value:'CTS-IAMPO',
+                                            placeholder: "Submitter"
+                                        }
                                     }
                                 }
                             }
-                        }
-                    ]
+                        ]
+                    }
+                },
+                {
+                    type: 'Box',
+                    props: {
+                        p: 2,
+                        width: 0.12,
+                        children: [
+                            {
+                                type: "FormGroup",
+                                props: {
+                                    label: "Client",
+                                    labelFor: 'client',
+                                    labelInfo: "(required)",
+                                    children: {
+                                        type: 'InputGroup',
+                                        props: {
+                                            id: 'client',
+                                            placeholder: "Client"
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
                 }
-            }
+            ]
         }
-
     };
 
 
