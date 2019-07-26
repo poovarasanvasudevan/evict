@@ -15,7 +15,7 @@ import {
     Intent
 } from "@blueprintjs/core";
 import Link from "next/link";
-import {TimezonePicker, TimezoneDisplayFormat} from "@blueprintjs/timezone";
+import AddIcon from '@atlaskit/icon/glyph/add'
 
 
 export default props => {
@@ -56,7 +56,6 @@ export default props => {
             <Link href="/kb">
                 <MenuItem icon="bookmark" text="Knowledge Base"/>
             </Link>
-
             <Link href="/formbuilder">
                 <MenuItem icon="dashboard" text="Form Builder"/>
             </Link>

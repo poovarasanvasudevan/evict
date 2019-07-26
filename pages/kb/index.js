@@ -23,8 +23,6 @@ const Skeleton = dynamic(() => import('../../component/Skeleton'), {
 });
 
 
-
-
 import Avatar from '@atlaskit/avatar';
 import Comment, {
     CommentAuthor,
@@ -94,38 +92,40 @@ export default props => {
                             <Card style={{padding: '8px'}}>
                                 <Flex>
                                     <Box width={2 / 10}>
+                                        <Button text={'New'} icon={'add'} minimal />
                                     </Box>
                                     <Box width={6 / 10}>
                                         <Flex>
-                                        <ChildAligner>
-                                            <CustomRefinmentBar
-                                                fieldConfig={{
-                                                    keywords: {
-                                                        label: 'Keywords',
-                                                        type: SelectFilter,
-                                                        options: keywords,
-                                                    },
-                                                }}
-                                                style={{height: '10px'}}
-                                                irremovableKeys={['keywords']}
-                                                onChange={onCheckChange}
-                                                value={check}
-                                            />
-                                        </ChildAligner>
 
-                                        <ChildAligner>
-                                            <InputGroup
-                                                rightElement={permissionsMenu}
-                                                leftIcon="search"
-                                                placeholder="Search"/>
 
-                                            {/*<RefinementBar*/}
-                                            {/*fieldConfig={{search: {label: 'Search', type: SearchFilter}}}*/}
-                                            {/*irremovableKeys={['search']}*/}
-                                            {/*onChange={onSearchChange}*/}
-                                            {/*value={search}*/}
-                                            {/*/>*/}
-                                        </ChildAligner>
+                                            <ChildAligner>
+                                                <CustomRefinmentBar
+                                                    fieldConfig={{
+                                                        keywords: {
+                                                            label: 'Keywords',
+                                                            type: SelectFilter,
+                                                            options: keywords,
+                                                        },
+                                                    }}
+                                                    irremovableKeys={['keywords']}
+                                                    onChange={onCheckChange}
+                                                    value={check}
+                                                />
+                                            </ChildAligner>
+
+                                            <ChildAligner>
+                                                <InputGroup
+                                                    rightElement={permissionsMenu}
+                                                    leftIcon="search"
+                                                    placeholder="Search"/>
+
+                                                {/*<RefinementBar*/}
+                                                {/*fieldConfig={{search: {label: 'Search', type: SearchFilter}}}*/}
+                                                {/*irremovableKeys={['search']}*/}
+                                                {/*onChange={onSearchChange}*/}
+                                                {/*value={search}*/}
+                                                {/*/>*/}
+                                            </ChildAligner>
                                         </Flex>
                                     </Box>
                                     <Box width={2 / 10}>
